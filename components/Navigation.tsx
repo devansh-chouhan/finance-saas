@@ -46,7 +46,7 @@ const Navigation = () => {
   if (isMobile) {
     return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button
             variant="outline"
             size="lg"
@@ -74,7 +74,7 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="hidden lg:flex items-center gap-x-2 overflow-x-auto">
+    <nav className="hidden lg:flex items-center gap-x-2">
       {routes.map((route) => (
         <NavButton
           key={route.href}

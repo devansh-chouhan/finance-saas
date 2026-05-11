@@ -48,11 +48,11 @@ const AccountsPage = () => {
   return ( 
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadow-sm">
-        <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
-          <CardTitle className="text-xl line-clamp-1">
+        <CardHeader className="flex flex-col gap-y-2 lg:flex-row lg:items-center lg:justify-between">
+          <CardTitle className="text-xl line-clamp-1 font-bold">
             Accounts page
           </CardTitle>
-          <Button onClick={newAccount.onOpen} size="sm">
+          <Button onClick={newAccount.onOpen} size="lg" className="w-full lg:w-auto">
             <Plus className="size-4 mr-2" />
             Add new
           </Button>
