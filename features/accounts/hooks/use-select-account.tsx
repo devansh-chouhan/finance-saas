@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 
-import { Select } from "@/components/ui/select";
+import { Select } from "@/components/select";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -28,7 +28,7 @@ export const useSelectAccount = (): [() => React.JSX.Element, () => Promise<unkn
   const [promise, setPromise] = useState<{ 
     resolve: (value: string | undefined) => void 
   } | null>(null);
-  const selectValue = useRef<string>();
+  const selectValue = useRef<string | undefined>(undefined);
 
   const confirm = () => new Promise((resolve, reject) => {
     setPromise({ resolve });
@@ -63,7 +63,7 @@ export const useSelectAccount = (): [() => React.JSX.Element, () => Promise<unkn
           placeholder="Select an account"
           options={accountOptions}
           onCreate={onCreateAccount}
-          onChange={(value: string) => selectValue.current = value}
+          onChange={(value) => selectValue.current = value}
           disabled={accountQuery.isLoading || accountMutation.isPending}
         />
         <DialogFooter className="pt-2">

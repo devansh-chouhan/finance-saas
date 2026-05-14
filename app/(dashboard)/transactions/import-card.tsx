@@ -110,20 +110,20 @@ export const ImportCard = ({
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadow-sm">
-        <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
-          <CardTitle className="text-xl line-clamp-1">
+        <CardHeader className="flex flex-col gap-y-2 lg:flex-row lg:items-center lg:justify-between">
+          <CardTitle className="text-xl line-clamp-1 font-bold">
             Import Transaction
           </CardTitle>
-          <div className="flex flex-col lg:flex-row gap-y-2 items-center gap-x-2">
+          <div className="flex flex-col lg:flex-row gap-2 w-full lg:w-auto">
             <Button 
               onClick={onCancel} 
-              size="sm" 
+              size="lg" 
               className="w-full lg:w-auto"
             >
               Cancel
             </Button>
             <Button
-              size="sm"
+              size="lg"
               disabled={progress < requiredOptions.length}
               onClick={handleContinue}
               className="w-full lg:w-auto"
