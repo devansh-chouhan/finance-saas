@@ -4,6 +4,7 @@ import WelcomeMessage from "@/components/WelcomeMessage"
 import { Filters } from "@/components/filters";
 import { UserButton, ClerkLoading, ClerkLoaded } from "@clerk/nextjs"
 import { Loader2 } from "lucide-react"
+import { Suspense } from "react"
 
 const Header = () => {
   return (
@@ -15,14 +16,16 @@ const Header = () => {
             <Navigation />
           </div>
           <ClerkLoaded>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           </ClerkLoaded>
           <ClerkLoading>
             <Loader2 className="animate-spin size-8 text-slate-400" />
           </ClerkLoading>
         </div>
         <WelcomeMessage/>
-        <Filters/>
+        <Suspense>
+          <Filters/>
+        </Suspense>
       </div>
     </header>
   )
